@@ -129,11 +129,11 @@ function Codebase(props)
         setFinalArray(NFA)
     }
     useEffect(()=>{
-        ReactGA.pageview(window.location.pathname)
+        ReactGA.pageview('/resources')
     },[])
     return(
         <animated.div style={Animatedprops} className={classes.root}>
-            <div className={classes.heading}><h1>Resource</h1></div>
+            <div className={classes.heading}><h1>Resources</h1></div>
             <animated.div style={Animatedprops2} className={classes.form}>
                 <form onSubmit={handleSubmit}>
                     <select id='state' defaultValue={stateVal} onChange={handleStateChange}>{state}</select>
