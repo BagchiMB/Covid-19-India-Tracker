@@ -129,7 +129,7 @@ function Codebase(props)
         setFinalArray(NFA)
     }
     useEffect(()=>{
-        ReactGA.pageview(window.location.pathname)
+        ReactGA.pageview('/resources')
     },[])
     return(
         <animated.div style={Animatedprops} className={classes.root}>
