@@ -1,0 +1,42 @@
+import sizes from './sizes'
+const styles=
+{
+    NavContainer:
+    {
+        backgroundColor:"#4CAF50",
+        display:"flex",
+        justifyContent:"center",
+        alignItems:"center",
+        position:'sticky',
+        top:'0vh',
+        width:"100%",
+    },
+    Nav:
+    {
+        width:"75%",
+        display:"flex",
+        justifyContent:"space-around",
+        alignItems:"center",
+        [sizes.down('sm')]:
+        {
+            width:'100%',
+            fontSize:'15px'
+        },
+    },
+    link:
+    {
+        textAlign:"center",
+        display:'block',
+        padding:'20px',
+        color:'#fff',
+        width:'20%',
+        textDecoration:'none',
+    },
+    NavActive:
+    {
+        backgroundColor:'#fffff0',
+        color:'#4CAF50',
+        fontWeight:'500'
+    }
+}
+export default styles
