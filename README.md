@@ -6,7 +6,7 @@
 1. Data is analyzed with graphs
 2. State wise statistics are shown
 3. District wise statistics are shown
-4. Updated regulary (All the available update stamps are notified)
+4. Updated regulary (All the available time stamps are notified)
 5. Resources List for almost every city is provided which includes TestLabs, Free Food Services, etc.
 
 ## Performance Features
