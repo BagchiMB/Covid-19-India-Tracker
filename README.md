@@ -1,6 +1,7 @@
 # A React App for all the latest updates about the spread of Corona Virus in India
 
 ### You can find this project hosted on [https://bagchimb.github.io/Covid-19-India-Tracker/#/](https://bagchimb.github.io/Covid-19-India-Tracker/#/)
+### Thanks for the support this page has completed 1000+ views
 
 ## Features
 1. Data is analyzed with graphs
