@@ -8,7 +8,7 @@ import {useSpring, animated} from 'react-spring'
 import ReactGA from 'react-ga'
 
 let S1=["Confirmed :","Active :","Recovered :","Deaths :"]
-let S2=['confirmed','active','recovered','deaths']
+let S2=['confirmed','active','recovered','deceased']
 let S3=['deltaconfirmed','deltaactive','deltarecovered','deltadeaths']
 let colors=[ ['#ffe0e6','#ff5f81','#ff0937'],['#eff7ff','#62aeff','#027dff'],['#e4f4e8','#75c687','#2AA747'],['#f6f6f7','#a5aaaf','#727b82']]
 
@@ -37,14 +37,32 @@ function Covid(props)
     let arr2=[]
     for (let i=0;i<4;i++)
     {
-        arr2.push(<MajorStat
+        if(Object.keys(data).length >=28)
+        {
+            if(i!==1)
+            {
+                arr2.push(<MajorStat
                     key={S1[i]} 
                     head={S1[i]} 
-                    fig={data.length!== undefined && data[0][S2[i]]} 
-                    delta={data.length!== undefined && data[0][S3[i]]}
+                    fig={Object.keys(data).length !== 0 && data["TT"]["total"][S2[i]]} 
+                    delta={Object.keys(data).length !== 0 && data["TT"]["delta"][S2[i]]}
                     bg={colors[i][0]}
                     w={colors[i][1]}
                     f={colors[i][2]}/>)
+            }
+            else
+            {
+                arr2.push(<MajorStat
+                    key={S1[i]} 
+                    head={S1[i]} 
+                    fig={Object.keys(data).length !== 0 && data["TT"]["total"]["confirmed"]-data["TT"]["total"]["recovered"]-data["TT"]["total"]["deceased"]-data["TT"]["total"]["migrated"]} 
+                    delta={Object.keys(data).length !== 0 && data["TT"]["delta"][S2[i]]}
+                    bg={colors[i][0]}
+                    w={colors[i][1]}
+                    f={colors[i][2]}/>)
+            }
+        }
+        
     }
     useEffect(()=>{
         window.scrollTo(0, 0)
@@ -57,7 +75,7 @@ function Covid(props)
                 <div className={classes.total}>
                     {arr2}
                 </div> 
-                <p style={{color:'#e2321a'}}>Last updated: <span style={{color:'#e2322a',fontWeight:"700"}}>{data.length!== undefined && data[0].lastupdatedtime} IST</span></p>
+                <p style={{color:'#e2321a'}}>Last updated: <span style={{color:'#e2322a',fontWeight:"700"}}>{Object.keys(data).length >= 28 && `${data["TT"]["meta"].last_updated.substring(0, 10)} ${data["TT"]["meta"].last_updated.substring(12, 19)}`} IST</span></p>
             </div>
             {<div className={classes.GraphContainer}>
                 <p className={classes.GraphP}>Spread Trends</p>

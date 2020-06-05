@@ -22,8 +22,12 @@ function App() {
     const dataCall = async ()=>
     {
         const res= await axios('https://api.covid19india.org/data.json');
-        setData(res.data.statewise)
+        // setData(res.data.statewise)
         setGdata(res.data.cases_time_series)
+
+        const reRes= await axios('https://api.covid19india.org/v3/min/data.min.json');
+        setData(reRes.data)
+
         const res2= await axios('https://api.covid19india.org/v2/state_district_wise.json');
         SetSdata(res2.data)
         const res3= await axios('https://api.covid19india.org/states_daily.json')

@@ -19,7 +19,22 @@ function Graph(props)
     let range=y[y.length-1]
     let ro
     let step
-    if(range>10000)
+    if(range>500000)
+    {
+        ro=500000
+        step=100000
+    }
+    if(range>100000)
+    {
+        ro=100000
+        step=50000
+    }
+    else if(range>50000)
+    {
+        ro=50000
+        step=10000
+    }
+    else if(range>10000)
     {
         ro=10000
         step=5000
